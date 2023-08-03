@@ -26,22 +26,74 @@
             color: #ffcc00;
         }
         header {
-            background-color: #333;
+            height: 400px;
+            background-image: url('https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); /* Add the path to your texture image */
+            background-repeat: repeat;
+            background-size: cover; /* Makes the background image cover the full width */
             color: #fff;
             padding: 10px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Needed for pseudo-elements */
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(171, 44, 44, 0.4); /* Change the opacity and color as desired */
+            z-index: -1;
+            opacity: 40; /* Hidden by default */
+            transition: opacity 0.5s ease; /* Transition effect */
+        }
+        header:hover::before {
+            opacity: 1; /* Display on hover */
         }
         main {
             padding: 20px;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap; /* Allow services to wrap to a new line on small screens */
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .services-column {
+            flex: 1;
+            text-align: center;
+            margin: 10px;
+            max-width: 300px; /* Limit the width of services on smaller screens */
+        }
+        .service-image {
+            max-width: 350px; /* Adjust the size of the image */
+            margin: 0 auto 10px; /* Centers the image above the title */
+            display: block; /* Removes any inline space */
+            border-radius: 12px;
         }
         footer {
             background-color: #333;
             color: #fff;
             padding: 10px;
             text-align: center;
-            position: absolute;
-            bottom: 0;
+            /* Removed position: absolute; and bottom: 0; */
             width: 100%;
+        }
+        
+        /* Media Query for Responsive Layout */
+        @media screen and (max-width: 768px) {
+            header {
+                height: 200px; /* Adjust the header height for smaller screens */
+            }
+            .services {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -53,14 +105,37 @@
     </nav>
     <header>
         <h1>Your Webpage Header</h1>
+        <p>This is a stunning header with a subtle texture-like effect.</p>
+        <p>Feel free to add more content to make it even more attractive!</p>
     </header>
     <main>
-        <h2>Welcome to Your Webpage</h2>
-        <p>This is a simple example of an HTML webpage.</p>
-        <p>Feel free to edit this content and add more elements as needed!</p>
+    
+        <section id="why-choose-us">
+            <h2>Why Choose Us?</h2>
+            <p>Unlock Your Brand's Potential with Creative Magic!</p>
+            <p>At our design studio, we believe that ordinary is forgettable. That's why we craft extraordinary graphic design and motion design solutions that make your brand stand out from the crowd. Our passionate team of designers and animators is on a mission to bring your vision to life, infusing each project with creativity, innovation, and a touch of magic.</p>
+            <p>From mesmerizing logos that leave a lasting impression to captivating animations that engage your audience, our services are tailored to elevate your brand and create lasting connections with your customers. Whether you're a startup looking to make a splash or an established brand seeking fresh inspiration, our design expertise is here to ignite your success.</p>
+            <p>Dare to be different, and let your brand soar to new heights with our exceptional design solutions. Collaborate with us, and let the world see the enchanting magic of your brand!</p>
+        </section>
         
         <h2 id="services">Our Services</h2>
-        <p>Here you can provide information about the services your website offers.</p>
+        <div class="services">
+            <div class="services-column">
+                <img class="service-image" src="https://images.pexels.com/photos/8833494/pexels-photo-8833494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Web Design">
+                <h3>Web Design</h3>
+                <p>Offering creative and responsive web design services.</p>
+            </div>
+            <div class="services-column">
+                <img class="service-image" src="https://images.pexels.com/photos/8833494/pexels-photo-8833494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Animation">
+                <h3>Animation</h3>
+                <p>Creating engaging animations for your projects.</p>
+            </div>
+            <div class="services-column">
+                <img class="service-image" src="https://images.pexels.com/photos/8833494/pexels-photo-8833494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Graphic Design">
+                <h3>Graphic Design</h3>
+                <p>Providing stunning graphic design solutions.</p>
+            </div>
+        </div>
         
         <h2 id="about">About Us</h2>
         <p>Write about your company or organization and what you do.</p>
